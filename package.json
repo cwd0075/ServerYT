@@ -4,13 +4,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "./node_modules/mocha/bin/mocha express.test.js"
     
   },
   "dependencies": {
     
     "debug": "~2.2.0",
-    "request-json": "*"
+    "request-json": "*",
+    "expect.js": "0.3.1",
+    "mocha": "2.0.1",
+    "superagent": "0.20.0"
         
   }
 }
