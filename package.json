@@ -14,7 +14,9 @@
     "request-json": "*",
     "expect.js": "0.3.1",
     "mocha": "2.0.1",
-    "superagent": "0.20.0"
+    "superagent": "0.20.0",
+    "async": "*",
+    "mongoskin": "*"
         
   }
 }
