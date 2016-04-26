@@ -16,8 +16,10 @@ function saveYoutubeToMongo(name, callback){
 			body.country = name.code;
 			db.collection('vids').insert(body, function(e, success) {
 			    if (e) callback(e); 
-			    if (success) console.log(name.name +' added!');
-			    callback();
+			    if (success){ 
+			    	console.log(name.name +' added!');
+			    	callback();
+				}
 			});
 
 		}
@@ -34,8 +36,11 @@ function updateDB(){
 }
 
 db.collection('vids').remove({}, function(e, success) {
-    if (e) throw e;
-    if (success) {
+    if (e){
+    	throw e;
+    } 
+    else	
+    {
     	console.log('Removed all!');
     	updateDB();
     }
