@@ -16,7 +16,8 @@
     "mocha": "2.0.1",
     "superagent": "0.20.0",
     "async": "*",
-    "mongoskin": "*"
+    "mongoskin": "*",
+    "winston": "*"
         
   }
 }
