@@ -5,6 +5,8 @@ var expect = require('expect.js');
 var result = require('./lib/services');
 var countries = require('./json/countries.json');
 var db = require('mongoskin').db('mongodb://localhost:27017/youtube', {safe: true});
+var updatemongo = require('./lib/updatemongo');
+var record_count = countries.length;
 
 describe('countries.json',function(){
   it('should return Worldwide country code',function(){
@@ -50,4 +52,25 @@ describe('Mongoskin', function(){
         });
     });
   });
+});
+
+describe('updatemongo', function(){
+  it('function clearDB should clear the database', function(done){
+    updatemongo.clearDB(function(e, success){
+        db.collection('vids').count(function(err, count){
+            expect(count).to.eql(0);
+            done();
+        });
+    });
+  });
+  it('function updateDB should add Youtube country popular records to database', function(done){
+    updatemongo.updateDB(function(error){
+        db.collection('vids').count(function(err, count){
+            expect(count).to.eql(record_count);
+            done();
+        });
+
+    });
+  });
+
 });
