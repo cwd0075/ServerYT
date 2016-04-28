@@ -19,11 +19,12 @@ function mainRun(){
     			  }
         	});
         }
+        success = null;
     });
     
 }
 
-var job = new CronJob('00 30 * * * *', function() {
+var job = new CronJob('00 1-60 * * * *', function() {
         mainRun();
     }, 
 null, false, 'Asia/Hong_Kong');
