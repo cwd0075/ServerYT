@@ -23,8 +23,8 @@ function mainRun(){
     });
     
 }
-
-var job = new CronJob('00 1-60 * * * *', function() {
+//run at 5 minutes after midnight daily
+var job = new CronJob('00 5 0 * * *', function() {
         mainRun();
     }, 
 null, false, 'Asia/Hong_Kong');
